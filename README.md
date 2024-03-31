@@ -1,5 +1,5 @@
 
-# # Project Title: Healthsync - Revolutionizing Healthcare with AI - syncHealth
+## Project Title: Healthsync - Revolutionizing Healthcare with AI - syncHealth
 
 ## Problem Statement:
 The healthcare sector faces an array of challenges globally, including diagnostic delays, errors in data interpretation, and limited access to specialized expertise. These obstacles often lead to suboptimal patient outcomes and increased costs within healthcare systems.
