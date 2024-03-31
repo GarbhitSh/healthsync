@@ -1,0 +1,56 @@
+<!-- Xray/templates/result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            background-color: black; /* Set background color to black */
+            color: white; /* Set text color to white */
+            font-family: Arial, sans-serif; /* Set font family */
+            padding: 20px; /* Add padding to the body */
+        }
+        h1 {
+            text-align: center; /* Center align the heading */
+        }
+        h2 {
+            text-align: center; /* Center align the heading */
+            color: green;
+        }
+        h6 {
+            text-align: center; /* Center align the heading */
+        }
+        p {
+            text-align: center; /* Center align paragraphs */
+            font-size: 20px; /* Set font size for paragraphs */
+        }
+        img {
+            max-width: 100%; /* Set maximum width for images */
+            height: auto; /* Maintain aspect ratio of images */
+            border-radius: 5px; /* Add rounded corners to images */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add shadow effect to images */
+        }
+    </style>
+</head>
+<body>
+    <h1><u>Prediction Result</u></h1>
+
+
+    <h2> Bone Type : {{ Bone_type }}</h2>
+
+    {% if prediction_result == 'fractured' %}
+        <p style="color: red;">Result: Fractured</p>
+    {% else %}
+        <p style="color: green;">Result: Normal</p>
+    {% endif %}
+    {% if uploaded_image %}
+    <img src="{{ uploaded_image.image.url }}" alt="Uploaded Image" style="display: block; margin: 0 auto ;">
+    <h6>Uploaded Xray:</h6>
+
+     {% endif %}
+
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!-- Xray/templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bone Fracture Detection</title>
+    <style>
+        body {
+            background-color: black; /* Set background color to black */
+            color: white; /* Set text color to white */
+            font-family: Arial, sans-serif; /* Set font family */
+            padding: 20px; /* Add padding to the body */
+        }
+        h1 {
+            text-align: center; /* Center align the heading */
+        }
+        form {
+            margin: 0 auto; /* Center the form horizontally */
+            max-width: 400px; /* Set maximum width for the form */
+        }
+        input[type="file"] {
+            width: 100%; /* Make the file input full width */
+            margin-bottom: 10px; /* Add space below the file input */
+        }
+        button[type="submit"] {
+            width: 100%; /* Make the submit button full width */
+            background-color: #007bff; /* Set button background color */
+            color: white; /* Set button text color */
+            border: none; /* Remove button border */
+            padding: 10px; /* Add padding to the button */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Darken button color on hover */
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        img {
+            width: 50%;
+            height: 50%;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Bone Fracture Detection</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if uploaded_image %}
+        <h2>Uploaded Image:</h2>
+        <img src="{{ uploaded_image.url }}" alt="Uploaded Image">
+        {% endif %}
+        <button type="submit">Predict</button>
+    </form>
+    <div class="container">
+    <img src="../static/img/1.jpg" alt="">
+    </div>
+    {% if uploaded_image %}
+    <h2>Uploaded Image:</h2>
+    <img src="{{ uploaded_image.url }}" alt="Uploaded Image">
+    {% endif %}
+    
+
+</body>
+</html>

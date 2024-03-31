@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Identification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('../static/img/ss.jpg');
+            background-size: cover;
+            /* background-color: #f4f4f4; */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            /* max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+            text-align: center;
+        }
+        h1 {
+            color:white;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .custom-file-upload {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+        .custom-file-upload:hover {
+            background-color: #45a049;
+        }
+        #fileUpload {
+            display: none;
+        }
+        #submitButton {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            text-transform: uppercase;
+            display: none;
+            /* Replace 'background-image.jpg' with your image path */
+            background-size: cover;
+            align-items: center;
+        }
+        #submitButton:hover {
+            background-color: #0056b3;
+            align-items: center;
+            
+        }
+        #preview {
+            margin-top: 20px;
+        }
+        #preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <h1>Upload Image for Brain Tumor Identification</h1>
+        <form id="uploadForm" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="fileUpload" class="custom-file-upload">Choose File</label>
+            <input type="file" id="fileUpload" name="image" accept="image/*" onchange="previewImage(event)">
+            <br>
+            <center><button type="submit" id="submitButton">Submit</button></center>
+        </form>
+        <div id="preview"></div>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            var input = event.target;
+            var preview = document.getElementById('preview');
+            while (preview.firstChild) {
+                preview.removeChild(preview.firstChild);
+            }
+            var reader = new FileReader();
+            reader.onload = function () {
+                var img = document.createElement('img');
+                img.src = reader.result;
+                preview.appendChild(img);
+            }
+            reader.readAsDataURL(input.files[0]);
+            preview.style.display = 'block';
+            document.getElementById('submitButton').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

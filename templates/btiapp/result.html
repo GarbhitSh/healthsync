@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('../static/img/ss.jpg');
+            background-size: cover;
+            /* background-color: #f4f4f4; */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 50px;
+            color: #007bff;
+            margin-top: 20px;
+        }
+        .result-label {
+            font-weight: bold;
+        }
+        .result-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .back-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <br>
+    <div class="container">
+        <h1>Result</h1>
+        <p>Brain Tumor Identified : <span class="result-label">{{ prediction }}</span></p>
+        <!-- You can add an image here if you want to display a result image -->
+        <!-- <img src="result-image.jpg" alt="Result Image" class="result-image"> -->
+
+        <button class="back-button" onclick="window.history.back()">Back</button>
+    </div>
+</body>
+</html>
